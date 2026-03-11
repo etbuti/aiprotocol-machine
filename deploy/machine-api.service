@@ -1,0 +1,13 @@
+[Unit]
+Description=AI Protocol Machine API
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/aiprotocol-machine/service
+ExecStart=/opt/aiprotocol-machine/service/machine-api
+Restart=always
+RestartSec=3
+Environment=ADMIN_KEY=CHANGE_ME_STRONG_ADMIN_KEY
+
+[Install]
+WantedBy=multi-user.target
