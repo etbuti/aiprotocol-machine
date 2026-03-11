@@ -1,5 +1,5 @@
 const API = "https://api.aiprotocol.uk/admin";
-const ADMIN_KEY = "CHANGE_ME_ADMIN_KEY";
+const ADMIN_KEY = "CHANGE_ME_STRONG_ADMIN_20260311";
 
 async function loadJSON(path){
   try {
