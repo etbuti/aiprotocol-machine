@@ -2,10 +2,14 @@ const API = "https://api.aiprotocol.uk/admin";
 const ADMIN_KEY = "CHANGE_ME_ADMIN_KEY";
 
 async function loadJSON(path){
-  const res = await fetch(API + path, {
-    headers: { "X-Admin-Key": ADMIN_KEY }
-  });
-  return await res.json();
+  try {
+    const res = await fetch(API + path, {
+      headers: { "X-Admin-Key": ADMIN_KEY }
+    });
+    return await res.json();
+  } catch (e) {
+    return { ok:false, error:String(e) };
+  }
 }
 
 function renderTokens(items){

@@ -63,9 +63,9 @@ func (s *Server) handleBalance(w http.ResponseWriter, r *http.Request) {
 	}
 
 	writeJSON(w, map[string]any{
-		"ok":                true,
-		"token_name":        name,
-		"credits_remaining": credits,
+		"ok":                  true,
+		"token_name":          name,
+		"credits_remaining":   credits,
 		"rate_limit_per_hour": 60,
 	})
 }
@@ -209,8 +209,6 @@ func (s *Server) runAudit(jobID, target string) {
 	visaID := "AV-" + time.Now().UTC().Format("20060102-150405")
 	now := time.Now().UTC().Format(time.RFC3339)
 
-	// 这里先放最小占位逻辑
-	// 下一步把这里改成真正调用你现有的 runner
 	_, _ = s.DB.Exec(`
 		UPDATE jobs
 		SET status = ?, visa_id = ?, result = ?, evidence_url = ?, updated_at = ?
